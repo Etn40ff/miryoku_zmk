@@ -367,6 +367,10 @@ jobs:
           done
           test "$MIRYOKU_DEBUG" = 'MIRYOKU_DEBUG_TRUE' && cp "${GITHUB_WORKSPACE}/zmk/app/build/zephyr/.config" "${{ steps.main.outputs.artifact_dir }}"
           echo "::endgroup::"
+          if [ -f "${GITHUB_WORKSPACE}/zmk/app/build/zephyr/zephyr.dts" ]
+          then
+            cat "${GITHUB_WORKSPACE}/zmk/app/build/zephyr/zephyr.dts"
+          fi
       - name: upload
         uses: actions/upload-artifact@v4
         with:
