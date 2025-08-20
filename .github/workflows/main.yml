@@ -370,6 +370,7 @@ jobs:
           if [ -f "${GITHUB_WORKSPACE}/zmk/app/build/zephyr/zephyr.dts" ]
           then
             cat "${GITHUB_WORKSPACE}/zmk/app/build/zephyr/zephyr.dts"
+            cp "${GITHUB_WORKSPACE}/zmk/app/build/zephyr/zephyr.dts" "${{ steps.main.outputs.artifact_dir }}"
           fi
       - name: upload
         uses: actions/upload-artifact@v4
